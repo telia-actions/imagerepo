@@ -11,13 +11,17 @@
    first_job:
      # Steps represent a sequence of tasks that will be executed as part of the job
       
-	 steps:
+     steps:
        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-       - uses: actions/checkout@v3
+       - name: Checkout code 
+         uses: actions/checkout@v3
 
        - name: Login to Docker Hub
-         run: |
-           echo "${{ secrets.DOCKER_ACCESS_TOKEN }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+         uses: docker/login-action@v1
+	 with:
+           username: ${{ secrets.DOCKER_USERNAME }}
+	   password: ${{ secrets.DOCKER_ACCESS_TOKEN }}
+	   
      
      # Define another step that uses the Docker CLI to pull the image:
        - name: Pull image
