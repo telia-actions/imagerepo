@@ -24,7 +24,6 @@
            username: ${{ secrets.DOCKERHUB_USERNAME }}
            password: ${{ secrets.DOCKERHUB_TOKEN }}
 	   
-     
      # Define another step that uses the Docker CLI to pull the image:
        - 
          name: Pull image
