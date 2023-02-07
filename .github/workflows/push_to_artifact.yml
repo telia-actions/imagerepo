@@ -26,5 +26,5 @@ jobs:
           JF_USER: ${{ secrets.JF_USER }}
           JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
       - name: Push image to Artifactory
-        run: jfrog rt docker-push alpine-jre --url https://jfrog.teliacompany.io/tfpt-managed-base-docker-images/ --user "${{ JF_USER }}"  
+        run: jfrog rt docker-push alpine-jre --url https://jfrog.teliacompany.io/tfpt-managed-base-docker-images/ --user "${{ env.JF_USER }}"  
         #run: jfrog rt docker-push alpine-jre 
