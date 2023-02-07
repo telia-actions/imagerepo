@@ -25,6 +25,9 @@ jobs:
     # Basic authentication credentials
           JF_USER: ${{ secrets.JF_USER }}
           JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
+      - name: Tag the image
+        run: jfrog rt docker-tag "e21722b88970"  "https://jfrog.teliacompany.io/tfpt-managed-base-docker-images/openjdk11:alpine-jre"
+
       - name: Push image to Artifactory
-        run: jfrog rt docker-push
-          adoptopenjdk/openjdk11:alpine-jre    --url https://jfrog.teliacompany.io/artifactory/tfpt-managed-base-docker-images/
+        run: jfrog rt docker-push --url "https://jfrog.teliacompany.io/tfpt-managed-base-docker-images/openjdk11:alpine-jre"
+ 
