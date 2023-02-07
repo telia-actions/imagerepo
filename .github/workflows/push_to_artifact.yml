@@ -21,15 +21,10 @@ jobs:
       - name: Fetch jfrog  
         run: jf --version        
       - name: Login to JFrog Artifactory
-        env:
-          JF_URL: ${{ secrets.JF_URL }}
-    # Basic authentication credentials
-          JF_USER: ${{ secrets.JF_USER }}
-          JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
-      - name: Run ping command
-        run: |
-          jf rt ping
-   
+        run: jfrog rt config
+          --url="${{ JF_URL }}"
+          --user="${{ secrets.JF_USER }}" 
+          --password="${{ secrets.JF_PASSWORD }}"
       - name: Push image to Artifactory
         run: jfrog rt docker-push
           adoptopenjdk/openjdk11:alpine-jre    tfpt-managed-base-docker-images/
