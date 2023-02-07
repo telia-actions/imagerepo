@@ -28,12 +28,7 @@ jobs:
         run: |
           docker tag nginx:alpine tfpt-managed-base-docker-images/nginx:alpine
       - name: Login to JFROG Artifactory
-        uses: docker/login-action@v1
-        with:
-          registry: ${{ secrets.JFF_URL }}
-          username: ${{ env.JF_USER }}
-          password: ${{ env.JF_PASSWORD }}
-      
+        run: echo ${JF_USER}:${JF_PASSWORD} | docker login --username ${JF_USER} --password-stdin https://jfrog.teliacompany.io/artifactory/tfpt-managed-base-docker-images/
       
       - name: Push Docker image
         run: |
