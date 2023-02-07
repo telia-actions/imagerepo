@@ -32,5 +32,5 @@ jobs:
     # Basic authentication credentials
           JF_USER: ${{ secrets.JF_USER }}
           JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
-        run: jfrog rt docker-push adoptopenjdk/openjdk11:alpine-jre  --url "${{ env.JF_URL }}"  --user "${{ env.JF_USER }}"  --password	 "${{ env.JF_PASSWORD }}"
+        run: jfrog rt docker-push adoptopenjdk/openjdk11:alpine-jre tfpt-managed-base-docker-images  --url "${{ env.JF_URL }}"  --user "${{ env.JF_USER }}"  --password	 "${{ env.JF_PASSWORD }}"
         #run: jfrog rt docker-push alpine-jre 
