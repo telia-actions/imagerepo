@@ -27,10 +27,5 @@ jobs:
       #    username: ${{ env.JF }}
       #    password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Push image to Artifactory
-        env:
-          JF_URL: ${{ secrets.JF_URL }}
-    # Basic authentication credentials
-          JF_USER: ${{ secrets.JF_USER }}
-          JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
-        run: jfrog rt docker-push adoptopenjdk/openjdk11:alpine-jre tfpt-managed-base-docker-images  --url "${{ env.JF_URL }}"  --user "${{ env.JF_USER }}"  --password	 "${{ env.JF_PASSWORD }}"
+        run: jfrog rt docker-push adoptopenjdk/openjdk11:alpine-jre tfpt-managed-base-docker-images/  --url "${{ secrets.JF_URL }}"  --user "${{ secrets.JF_USER }}"  --password	 "${{ secrets.JF_PASSWORD }}"
         #run: jfrog rt docker-push alpine-jre 
