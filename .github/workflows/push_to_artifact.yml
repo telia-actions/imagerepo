@@ -29,5 +29,5 @@ jobs:
     #    run: jfrog rt docker-tag "e21722b88970"  "https://jfrog.teliacompany.io/tfpt-managed-base-docker-images/openjdk11:alpine-jre"
 
       - name: Push image to Artifactory
-        run: jfrog rt docker-push alpine-jre tfpt-managed-base-docker-images --url https://jfrog.teliacompany.io/artifactory/tfpt-managed-base-docker-images/ --user "${{ secrets.JF_USER}}" --password "${{ secrets.JF_PASSWORD }}"
+        run: jfrog rt docker-push alpine-jre tfpt-managed-base-docker-images --url https://jfrog.teliacompany.io/artifactory/tfpt-managed-base-docker-images/ --user "${{ secrets.JF_USER }}" --password "${{ secrets.JF_PASSWORD }}"
  
