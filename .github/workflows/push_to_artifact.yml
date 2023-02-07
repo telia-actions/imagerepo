@@ -22,7 +22,7 @@ jobs:
         run: jf --version        
       - name: Login to JFrog Artifactory
         run: jfrog rt config
-          --url="${{ JF_URL }}"
+          --url="${{ secrets.JF_URL }}"
           --user="${{ secrets.JF_USER }}" 
           --password="${{ secrets.JF_PASSWORD }}"
       - name: Push image to Artifactory
