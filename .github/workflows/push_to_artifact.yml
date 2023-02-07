@@ -1,4 +1,3 @@
----
 name: Docker Image Push to Artifactory
 on:
   - workflow_dispatch
