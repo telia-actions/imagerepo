@@ -27,4 +27,4 @@ jobs:
           JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
       - name: Push image to Artifactory
         run: jfrog rt docker-push
-          adoptopenjdk/openjdk11:alpine-jre    tfpt-managed-base-docker-images/
+          adoptopenjdk/openjdk11:alpine-jre    --url https://jfrog.teliacompany.io/ui/repos/tree/General/tfpt-managed-base-docker-images?projectKey=tfpt
