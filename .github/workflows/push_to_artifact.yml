@@ -19,12 +19,18 @@ jobs:
       - name: Setup JFROG installation
         uses: jfrog/setup-jfrog-cli@v3        
       - name: Fetch jfrog  
-        run: jf --version         
+        run: jf --version                 
+      #- name: Login to JFROG Artifactory
+      #  uses: docker/login-action@v2
+      #  with:
+      #    registry: 
+      #    username: ${{ env.JF }}
+      #    password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Push image to Artifactory
         env:
           JF_URL: ${{ secrets.JF_URL }}
     # Basic authentication credentials
           JF_USER: ${{ secrets.JF_USER }}
           JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
-      - name: Push image to Artifactory
-        run: jfrog rt docker-push "alpine-jre"  --url https://jfrog.teliacompany.io/artifactory/tfpt-managed-base-docker-images/  --user ${{ env.JF_USER }}  --password	 ${{ env.JF_PASSWORD }}
+        run: jfrog rt docker-push "alpine-jre"  --url "${env.JF_URL}}  --user "${{ env.JF_USER }}"  --password	 "${{ env.JF_PASSWORD }}"
         #run: jfrog rt docker-push alpine-jre 
