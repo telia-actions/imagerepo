@@ -29,7 +29,7 @@ jobs:
           docker tag nginx:alpine tfpt-managed-base-docker-images/nginx:alpine
       - name: Login to JFROG Artifactory
         run: 
-          docker login --username ${JF_USER} --password ${JF_PASSWORD} https://jfrog.teliacompany.io/artifactory/tfpt-managed-base-docker-images/
+          docker login --username ${JF_USER} --password ${JF_PASSWORD} https://jfrog.teliacompany.io/artifactory/
       
       - name: Push Docker image
         run: |
